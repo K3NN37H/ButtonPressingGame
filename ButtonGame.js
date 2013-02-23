@@ -8,7 +8,7 @@ function startClick()
 
 function buttonMaker()
 {
-    var left=Math.random()*85, top = Math.random()*85, size=Math.random()*15;
+    var left=Math.random()*85, top = Math.random()*85, size=5+Math.random()*10;
     $("body").append("<button id="+ticker+">bbbbbbbbbb</button>");
     $("#"+ticker).css("position", "absolute");
     $("#"+ticker).css("left",left+"%");
