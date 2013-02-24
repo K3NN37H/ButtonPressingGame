@@ -1,0 +1,13 @@
+When you are done with your changes and are ready to save it to the repository so we can get it.
+
+1. Make sure your file is saved at File Menu > Save All
+2. Tools Menu > Git > Pull
+3. In the console text box at the bottom of the screen, type exactly:
+git add *
+4. Tools Menu > Git > Commit
+5. The console at the bottom of the screen should have some text in it, add a message in quotes to the end of it to summarize what you did.  The command should look something like this afterwards:
+git commit -m "a message here"
+6. Tools Menu > Git > Push
+
+If you utterly screw something up and you need to revert back to before you did ANYTHING, type:
+git checkout -f
