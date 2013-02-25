@@ -10,6 +10,7 @@ function startClick()
     {
         buttonMaker();
     }
+    /**hiiiiii**/
 }
 
 function buttonMaker()
