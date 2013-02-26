@@ -4,7 +4,7 @@ var timerLength = 60;
 var timer;
 var score = 0;
 var highscore = 0;
-var numButtons = 3;
+var numButtons = 6;
 var largestnumber = 0 ;
 var multiplier = 1;
 
@@ -57,8 +57,13 @@ function gameButtonClick(event)
     {
         score+=30*numButtons*multiplier;  
         $("#score").text("Score: "+score);
+        multiplier+=.2;
     }
-    
+    else
+    {
+        score+=30*numButtons*multiplier;  
+        multiplier-=.5;
+    }
 
 }
 
