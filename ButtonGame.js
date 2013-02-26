@@ -55,14 +55,23 @@ function gameButtonClick(event)
     var buttonNum = parseInt($(this).text());
     if (buttonNum == largestnumber)
     {
-        score+=30*numButtons*multiplier;  
+        score+=parseInt(20*numButtons*multiplier);  
         $("#score").text("Score: "+score);
         multiplier+=.2;
     }
     else
     {
-        score+=30*numButtons*multiplier;  
-        multiplier-=.5;
+        score-=parseInt(50*numButtons*multiplier); 
+        if(score<0)
+        {
+            score=0;
+        }
+        $("#score").text("Score: "+score);
+        if(multiplier>1.5)
+        {
+            multiplier-=.4;
+        }
+        
     }
 
 }
