@@ -1,19 +1,22 @@
 $("#startgame").click(startClick);
 var ticker = 0;
-var timer = 60;
+var timerLength = 60;
+var timer;
 var score = 0;
+var highscore = 0;
 var numButtons = 3;
 var largestnumber = 0 ;
 var multiplier = 1;
 
 function startClick()
 {    
-    $("#startgame").css("top","150%")
+    $("#startgame").hide();
     $("body").append('<p id="score">Score: '+score+'</p>');
     for(var i = 0;i<numButtons;i++)
     {
         buttonMaker();
     }
+    timer = window.setTimeout(endGame, timerLength*1000);
     /**hiiiiii**/
 }
 
@@ -30,7 +33,7 @@ function buttonMaker()
     }
         
     var left=Math.random()*80, top = Math.random()*80, size=Math.random()*15+5;
-    $("body").append("<button id="+ticker+">"+randomnumber+"</button>");
+    $("#gamearea").append("<button id="+ticker+">"+randomnumber+"</button>");
     $("#"+ticker).css("position", "absolute");
     $("#"+ticker).css("left",left+"%");
     $("#"+ticker).css("top",top+"%");
@@ -48,7 +51,7 @@ function buttonMaker()
 
 function gameButtonClick(event)
 {
-    $("#test").text("moooo");
+    //$("#test").text("moooo");
     var buttonNum = parseInt($(this).text());
     if (buttonNum == largestnumber)
     {
@@ -59,6 +62,16 @@ function gameButtonClick(event)
 
 }
 
+function endGame()
+{
+    $("#gamearea").hide();
+    if (score > highscore)
+    {
+        highscore = score;
+        $("#test").text("High Score: "+highscore);
+    }
+    alert("ded");
+}
 
 
 
