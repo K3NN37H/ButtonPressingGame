@@ -4,6 +4,7 @@ var timer = 60;
 var score = 0;
 var numButtons = 3;
 var largestnumber = 0 ;
+var multiplier = 1;
 
 function startClick()
 {    
@@ -51,7 +52,7 @@ function gameButtonClick(event)
     var buttonNum = parseInt($(this).text());
     if (buttonNum == largestnumber)
     {
-        score+=1;
+        score+=30*numButtons*multiplier;  
         $("#score").text("Score: "+score);
     }
     
