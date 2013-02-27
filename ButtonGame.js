@@ -9,7 +9,7 @@ var highscore = 0;
 var numButtons = 6;
 var largestnumber = 0 ;
 var multiplier = 1;
-
+var buttonCoord=[];
 function startClick()
 {    
     $("#startgame").hide();
@@ -18,7 +18,9 @@ function startClick()
     for(var i = 0;i<numButtons;i++)
     {
         buttonMaker();
+        
     }
+    ticker=0;
     timer = window.setTimeout(endGame, timerLength*1000);
     timeClock = window.setInterval(function () {
         timeRemaining -= 1;
@@ -37,9 +39,40 @@ function buttonMaker()
     { 
          largestnumber=randomnumber;
     }
+<<<<<<< Updated upstream
         
     var left=Math.random()*80, top = Math.random()*80, size=Math.random()*15+5;
     $("#gamearea").append('<button class="gamebutton" id='+ticker+'>'+randomnumber+'</button>');
+=======
+    
+    var overlap=0, left, top, size;
+    do 
+    {
+        left=Math.round(Math.random()*80);
+        top= Math.round(Math.random()*80);
+        size=Math.round(Math.random()*15+5);
+        overlap=1;
+        for(var i =0;i<ticker;i++)
+        {
+            if((left-3)<buttonCoord[i][0])
+            {
+                if((left+size+3)>buttonCoord[i][0])
+                {
+                    if((top-3)<buttonCoord[i][1])
+                    {
+                        if((top+size+3)>buttonCoord[i][1])
+                        {
+                            overlap=0;
+                        }
+                    }
+                }
+            }
+        }
+        console.log("overlap is: "+overlap);
+    }while(overlap==0);
+    buttonCoord[ticker]=[left+(size/2),top+size/2];
+    $("#gamearea").append("<button id="+ticker+">"+randomnumber+"</button>");
+>>>>>>> Stashed changes
     $("#"+ticker).css("position", "absolute");
     $("#"+ticker).css("left",left+"%");
     $("#"+ticker).css("top",top+"%");
@@ -53,6 +86,7 @@ function buttonMaker()
     
     $("#"+ticker).click(gameButtonClick);
     ticker++;
+    console.log("largest number on screen is "+largestnumber);
 }
 
 function gameButtonClick(event)
@@ -67,7 +101,7 @@ function gameButtonClick(event)
     }
     else
     {
-        score-=parseInt(50*numButtons*multiplier); 
+        score-=parseInt(10*numButtons*multiplier); 
         if(score<0)
         {
             score=0;
@@ -75,11 +109,13 @@ function gameButtonClick(event)
         $("#score").text("Score: "+score);
         if(multiplier>1.5)
         {
-            multiplier-=.4;
+           multiplier-=.4;
         }
         
     }
     $("#gamearea").empty();
+    largestnumber=0;
+    ticker=0;
     for(var i = 0;i<numButtons;i++)
     {
         buttonMaker();
@@ -89,6 +125,7 @@ function gameButtonClick(event)
 function endGame()
 {
     $("#gamearea").hide();
+    $("#gamearea").empty();
     if (score > highscore)
     {
         highscore = score;
@@ -97,7 +134,9 @@ function endGame()
     window.clearInterval(timeClock);
     timeRemaining = timerLength;
     $("#startgame").show();
-    alert("ded");
+    alert("Your final score is: "+score);
+    score=0;
+    $("#score").text("Score: "+score);
 }
 
 
