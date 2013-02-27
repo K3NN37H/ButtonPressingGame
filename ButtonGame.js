@@ -24,7 +24,6 @@ function startClick()
         timeRemaining -= 1;
         $("#timeClock").text("Remaining: "+timeRemaining);
     }, 1000);
-    /**hiiiiii**/
 }
 
 function buttonMaker()
@@ -40,7 +39,7 @@ function buttonMaker()
     }
         
     var left=Math.random()*80, top = Math.random()*80, size=Math.random()*15+5;
-    $("#gamearea").append("<button id="+ticker+">"+randomnumber+"</button>");
+    $("#gamearea").append('<button class="gamebutton" id='+ticker+'>'+randomnumber+'</button>');
     $("#"+ticker).css("position", "absolute");
     $("#"+ticker).css("left",left+"%");
     $("#"+ticker).css("top",top+"%");
