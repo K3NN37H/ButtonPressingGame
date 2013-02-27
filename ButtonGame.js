@@ -2,6 +2,8 @@ $("#startgame").click(startClick);
 var ticker = 0;
 var timerLength = 60;
 var timer;
+var timeClock;
+var timeRemaining = timerLength;
 var score = 0;
 var highscore = 0;
 var numButtons = 6;
@@ -11,12 +13,17 @@ var multiplier = 1;
 function startClick()
 {    
     $("#startgame").hide();
-    $("body").append('<p id="score">Score: '+score+'</p>');
+    $("#gamearea").show();
+    //$("body").append('<p id="score">Score: '+score+'</p>');
     for(var i = 0;i<numButtons;i++)
     {
         buttonMaker();
     }
     timer = window.setTimeout(endGame, timerLength*1000);
+    timeClock = window.setInterval(function () {
+        timeRemaining -= 1;
+        $("#timeClock").text("Remaining: "+timeRemaining);
+    }, 1000);
     /**hiiiiii**/
 }
 
@@ -73,7 +80,11 @@ function gameButtonClick(event)
         }
         
     }
-
+    $("#gamearea").empty();
+    for(var i = 0;i<numButtons;i++)
+    {
+        buttonMaker();
+    }
 }
 
 function endGame()
@@ -84,6 +95,9 @@ function endGame()
         highscore = score;
         $("#test").text("High Score: "+highscore);
     }
+    window.clearInterval(timeClock);
+    timeRemaining = timerLength;
+    $("#startgame").show();
     alert("ded");
 }
 
