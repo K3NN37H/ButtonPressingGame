@@ -39,11 +39,8 @@ function buttonMaker()
     { 
          largestnumber=randomnumber;
     }
-<<<<<<< Updated upstream
         
     var left=Math.random()*80, top = Math.random()*80, size=Math.random()*15+5;
-    $("#gamearea").append('<button class="gamebutton" id='+ticker+'>'+randomnumber+'</button>');
-=======
     
     var overlap=0, left, top, size;
     do 
@@ -71,8 +68,7 @@ function buttonMaker()
         console.log("overlap is: "+overlap);
     }while(overlap==0);
     buttonCoord[ticker]=[left+(size/2),top+size/2];
-    $("#gamearea").append("<button id="+ticker+">"+randomnumber+"</button>");
->>>>>>> Stashed changes
+    $("#gamearea").append('<button class="gamebutton" id='+ticker+'>'+randomnumber+'</button>');
     $("#"+ticker).css("position", "absolute");
     $("#"+ticker).css("left",left+"%");
     $("#"+ticker).css("top",top+"%");
