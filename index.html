@@ -14,25 +14,40 @@
                 min-height:20px;
                 min-width:50px;
             }
+            #scoreTable
+            {
+                position:absolute;
+                font-family:"Comic Sans MS";
+                top: 10%;
+                width:20%;
+                left:35%;
+                
+            }
             body
             {
                 background-color:#5ac3b6;
             }   
             button
             {
+                position:absolute;
                 font-family:"Comic Sans MS";
                 font-weight:bold;
                 font-size:20px;
             }
             p
             {
+                font-family:"Comic Sans Ms";
+                font-size:15px;
+                font-weight:bold;
                 display:inline;
             }
+            
+           
         </style>
     </head>
     <body>
 		<p id="timeClock">
-			Remaining: 
+			Remaining: 30
 		</p>
         <p id="test">
             High Score: 0
@@ -44,6 +59,12 @@
         <button id="startgame">
             START GAME!!!
         </button>
+        <table border="1" id="scoreTable">
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </table>
         <script src="ButtonGame.js"></script>
     </body>
 </html>

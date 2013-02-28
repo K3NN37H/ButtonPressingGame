@@ -1,6 +1,6 @@
 $("#startgame").click(startClick);
 var ticker = 0;
-var timerLength = 60;
+var timerLength = 30;
 var timer;
 var timeClock;
 var timeRemaining = timerLength;
@@ -10,10 +10,13 @@ var numButtons = 6;
 var largestnumber = 0 ;
 var multiplier = 1;
 var buttonCoord=[];
+var scores=[];
+var scoretracker=0;
 function startClick()
 {    
     $("#startgame").hide();
     $("#gamearea").show();
+    $("#scoreTable").hide();
     //$("body").append('<p id="score">Score: '+score+'</p>');
     for(var i = 0;i<numButtons;i++)
     {
@@ -77,6 +80,7 @@ function buttonMaker()
     $("#"+ticker).css("width", size+"%");
     $("#"+ticker).css("min-height", "30px");
     $("#"+ticker).css("min-width", "30px");
+    $("#"+ticker).css("border-radius",size*3);
     //$("style").append("#"+ticker+"{position:absolute;left:"+left+"%;top:"+top+"%;width:"+size+"%;height:"+size+"%;}");
     //var button = document.getElementbyID(ticker);
     
@@ -129,8 +133,14 @@ function endGame()
     }
     window.clearInterval(timeClock);
     timeRemaining = timerLength;
+    
     $("#startgame").show();
+    $("#scoreTable").show();
     alert("Your final score is: "+score);
+    var name = prompt("Enter your name for the scoreboard!");
+    scores[scoretracker]=[name, score];
+    $("#scoreTable").append("<tr><td>"+name+"</td><td>"+score+"</td></tr>");
+    scoretracker++;
     score=0;
     $("#score").text("Score: "+score);
 }
