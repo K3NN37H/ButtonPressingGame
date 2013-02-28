@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.andkenjun.buttongame"
+        version   = "0.0.1">
+    <name>Button Pressing Game</name>
+
+    <description>
+        Button Pressing Game!
+    </description>
+    
+    <author href="" email="">
+        Andrew, Kenneth, Junyi
+    </author>
+
+    <preference name="phonegap-version" value="2.3.0" />
+    <preference name="orientation"      value="default" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+    <preference name="permissions" value="none"/>
+</widget>
