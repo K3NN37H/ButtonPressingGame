@@ -12,6 +12,9 @@ var multiplier = 1;
 var buttonCoord=[];
 var scores=[];
 var scoretracker=0;
+function blah(){
+	alert("test");
+}
 function startClick()
 {    
     $("#startgame").hide();
