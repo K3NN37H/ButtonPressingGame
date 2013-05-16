@@ -138,15 +138,41 @@ function endGame()
     $("#scoreTable").show();
     alert("Your final score is: "+score);
     var name = prompt("Enter your name for the scoreboard!");
-    scores[scoretracker]=[name, score];
     $("#scoreTable").append("<tr><td>"+name+"</td><td>"+score+"</td></tr>");
+    scores[scoretracker]=[name, score];
     scoretracker++;
+    localStorage.highscores=scores;
     score=0;
     $("#score").text("Score: "+score);
 }
 
 
+function addScore(amount) {
+    score += amount;
+	points += amount;
+	refreshScore();
+}
 
+function spendPoints(amount) {
+	points -= amount;
+	refreshScore();
+}
+
+function resetScore() {
+	score = 0;
+	refreshScore();
+}
+
+function resetPoints() {
+	points = 0;
+	refreshScore();
+}
+
+function refreshScore() {
+	$("#scorebutton").text("Your score is "+ score);
+	$("#finalScoreButton").text("Your final score is "+ score);
+	$("#totalScoreButton").text("Your total points is "+points);
+}
 
 
 
